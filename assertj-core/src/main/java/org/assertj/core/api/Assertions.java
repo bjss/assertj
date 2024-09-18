@@ -2113,8 +2113,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * 	...(69 remaining lines not displayed - this can be changed with Assertions.setMaxStackTraceElementsDisplayed)org.assertj.core.util.Throwables_Description_Test$test1.exception_layer_1(Throwables_Description_Test.java:30)</code></pre>
    *
    * @param maxStackTraceElementsDisplayed  the maximum number of lines for a stacktrace to be displayed on one throw.
-   * @since 3.19.0
    * @see Configuration
+   * @since 3.19.0
    */
   public static void setMaxStackTraceElementsDisplayed(int maxStackTraceElementsDisplayed) {
     StandardRepresentation.setMaxStackTraceElementsDisplayed(maxStackTraceElementsDisplayed);
@@ -2178,9 +2178,9 @@ public class Assertions implements InstanceOfAssertFactories {
    *
    * @param propertyName the name of the property to be read from the elements of a {@code Iterable}. It may be a nested
    *          property (e.g. "address.street.number").
+   * @return the created {@code Properties}.
    * @throws NullPointerException if the given property name is {@code null}.
    * @throws IllegalArgumentException if the given property name is empty.
-   * @return the created {@code Properties}.
    */
   public static Properties<Object> extractProperty(String propertyName) {
     return Properties.extractProperty(propertyName);
@@ -2383,7 +2383,6 @@ public class Assertions implements InstanceOfAssertFactories {
    * Typical usage :
    * <pre><code class='java'> assertThat(BigInteger.TEN).isCloseTo(new BigInteger("11"), within(new BigInteger("2")));</code></pre>
    *
-   * @since 2.7.0 / 3.7.0
    * @param value the allowed offset
    * @return the created {@code Offset}.
    * @throws NullPointerException if the given value is {@code null}.
@@ -2466,8 +2465,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * @param value the allowed offset
    * @param unit the {@link TemporalUnit} of the offset
    * @return the created {@code Offset}.
-   * @since 3.7.0
    * @see #byLessThan(long, TemporalUnit)
+   * @since 3.7.0
    */
   public static TemporalUnitOffset within(long value, TemporalUnit unit) {
     return new TemporalUnitWithinOffset(value, unit);
@@ -2674,8 +2673,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * @param value the value of the offset.
    * @param unit the {@link TemporalUnit} of the offset.
    * @return the created {@code Offset}.
+   * @see #within(long, TemporalUnit)
    * @since 3.7.0
-   * @see #within(long, TemporalUnit) 
    */
   public static TemporalUnitOffset byLessThan(long value, TemporalUnit unit) {
     return new TemporalUnitLessThanOffset(value, unit);
@@ -2713,7 +2712,6 @@ public class Assertions implements InstanceOfAssertFactories {
    * @param <ASSERT>      the type of the resulting {@code Assert}
    * @return same instance of {@code assertFactory}
    *
-   * @since 3.14.0
    * @see AbstractObjectAssert#extracting(String, InstanceOfAssertFactory)
    * @see AbstractObjectAssert#extracting(Function, InstanceOfAssertFactory)
    * @see AbstractMapAssert#extractingByKey(Object, InstanceOfAssertFactory)
@@ -2721,6 +2719,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * @see AbstractIterableAssert#first(InstanceOfAssertFactory)
    * @see AbstractIterableAssert#last(InstanceOfAssertFactory)
    * @see AbstractIterableAssert#element(int, InstanceOfAssertFactory)
+   *
+   * @since 3.14.0
    */
   public static <T, ASSERT extends AbstractAssert<?, ?>> InstanceOfAssertFactory<T, ASSERT> as(InstanceOfAssertFactory<T, ASSERT> assertFactory) {
     return assertFactory;

@@ -28,11 +28,6 @@ import org.assertj.core.util.VisibleForTesting;
 /**
  * Base class for all implementations of assertions for {@link Throwable}s.
  *
- * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
- *          for more details.
- * @param <ACTUAL> the type of the "actual" value.
- *
  * @author David DIDIER
  * @author Alex Ruiz
  * @author Joel Costigliola
@@ -40,6 +35,11 @@ import org.assertj.core.util.VisibleForTesting;
  * @author Jack Gough
  * @author Mike Gilchrist
  * @author Paweł Baczyński
+ *
+ * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
+ *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
+ *          for more details.
+ * @param <ACTUAL> the type of the "actual" value.
  */
 public abstract class AbstractThrowableAssert<SELF extends AbstractThrowableAssert<SELF, ACTUAL>, ACTUAL extends Throwable>
     extends AbstractObjectAssert<SELF, ACTUAL> {
@@ -184,7 +184,6 @@ public abstract class AbstractThrowableAssert<SELF extends AbstractThrowableAsse
   }
 
   /**
-   * @deprecated use {@link #cause()} instead.
    * <p>
    * Returns a new assertion object that uses the cause of the current Throwable as the actual Throwable under test.
    * <p>
@@ -201,6 +200,7 @@ public abstract class AbstractThrowableAssert<SELF extends AbstractThrowableAsse
    * @throws AssertionError if the actual {@code Throwable} does not have a cause.
    *
    * @since 3.16.0
+   * @deprecated use {@link #cause()} instead.
    */
   @Deprecated
   public AbstractThrowableAssert<?, ?> getCause() {
@@ -232,7 +232,6 @@ public abstract class AbstractThrowableAssert<SELF extends AbstractThrowableAsse
   }
 
   /**
-   * @deprecated use {@link #rootCause()} instead.
    * <p>
    * Returns a new assertion object that uses the root cause of the current Throwable as the actual Throwable under test.
    * <p>
@@ -250,6 +249,7 @@ public abstract class AbstractThrowableAssert<SELF extends AbstractThrowableAsse
    * @throws AssertionError if the actual {@code Throwable} does not have a root cause.
    *
    * @since 3.16.0
+   * @deprecated use {@link #rootCause()} instead.
    */
   @Deprecated
   public AbstractThrowableAssert<?, ?> getRootCause() {

@@ -38,9 +38,10 @@ import com.google.common.collect.RangeMap;
  * org.assertj.guava.api.Assertions#assertThat(com.google.common.collect.RangeMap)}</code>
  * <p>
  *
+ * @author Marcin Kwaczyński
+ *
  * @param <K> the type of keys of the tested RangeMap value
  * @param <V> the type of values of the tested RangeMap value
- * @author Marcin Kwaczyński
  */
 public class RangeMapAssert<K extends Comparable<K>, V> extends AbstractAssert<RangeMapAssert<K, V>, RangeMap<K, V>> {
 
@@ -97,7 +98,6 @@ public class RangeMapAssert<K extends Comparable<K>, V> extends AbstractAssert<R
   }
 
   /**
-   * @deprecated use {@link #contains(MapEntry...)} instead (same method but using {@link MapEntry org.assertj.core.data.MapEntry} in place of {@link org.assertj.guava.data.MapEntry}.
    * <p>
    * Verifies that the actual {@link com.google.common.collect.RangeMap} contains the given entries.<br>
    * <p>
@@ -123,6 +123,8 @@ public class RangeMapAssert<K extends Comparable<K>, V> extends AbstractAssert<R
    * @throws IllegalArgumentException if no param entries have been set.
    * @throws AssertionError if the actual {@link com.google.common.collect.RangeMap} is {@code null}.
    * @throws AssertionError if the actual {@link com.google.common.collect.RangeMap} does not contain the given entries.
+   *
+   * @deprecated use {@link #contains(MapEntry...)} instead (same method but using {@link MapEntry org.assertj.core.data.MapEntry} in place of {@link org.assertj.guava.data.MapEntry}.
    */
   @SafeVarargs
   @Deprecated

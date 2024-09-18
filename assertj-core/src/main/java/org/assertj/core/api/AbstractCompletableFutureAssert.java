@@ -295,7 +295,6 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
   }
 
   /**
-   * @deprecated
    * <p>
    * Combine isCompletedExceptionally with isNotCancelled instead:
    *
@@ -322,6 +321,8 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
    * assertThat(future).hasFailed();</code></pre>
    *
    * @return this assertion object.
+   *
+   * @deprecated
    */
   @Deprecated
   public SELF hasFailed() {
@@ -331,7 +332,6 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
   }
 
   /**
-   * @deprecated
    * <p>
    * Use matches with the following combination instead:
    *
@@ -355,6 +355,8 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
    * assertThat(future).hasNotFailed();</code></pre>
    *
    * @return this assertion object.
+   *
+   * @deprecated
    */
   @Deprecated
   public SELF hasNotFailed() {
@@ -507,7 +509,6 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
   }
 
   /**
-   * @deprecated
    * <p>
    * Although not 100% the same, consider using {@link #failsWithin(Duration)} or {@link #failsWithin(long, TimeUnit)} instead:
    *
@@ -541,6 +542,8 @@ public abstract class AbstractCompletableFutureAssert<SELF extends AbstractCompl
    * </code></pre>
    *
    * @return an exception assertion object.
+   *
+   * @deprecated
    */
   @Deprecated
   public AbstractThrowableAssert<?, ? extends Throwable> hasFailedWithThrowableThat() {

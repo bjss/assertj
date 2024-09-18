@@ -25,10 +25,10 @@ import org.assertj.core.util.VisibleForTesting;
  * <p>Note that none of the assertions modify the actual iterator, i.e. they do not consume any elements.
  * In order to use consuming assertions, use {@link #toIterable()}.</p>
  *
+ * @author Stephan Windmüller
  * @param <SELF> the "self" type of this assertion class.
  * @param <ELEMENT> the type of elements.
  *
- * @author Stephan Windmüller
  * @since 3.12.0
  */
 public abstract class AbstractIteratorAssert<SELF extends AbstractIteratorAssert<SELF, ELEMENT>, ELEMENT>
@@ -55,8 +55,8 @@ public abstract class AbstractIteratorAssert<SELF extends AbstractIteratorAssert
    *
    * assertThat(elvesRingBearers).hasNext();</code></pre>
    *
-   * @throws AssertionError if the actual {@code Iterator} is {@code null} or does not have another element.
    * @return this assertion object.
+   * @throws AssertionError if the actual {@code Iterator} is {@code null} or does not have another element.
    * @since 3.12.0
    */
   public SELF hasNext() {
@@ -72,8 +72,8 @@ public abstract class AbstractIteratorAssert<SELF extends AbstractIteratorAssert
    *
    * assertThat(result).isExhausted();</code></pre>
    *
-   * @throws AssertionError if the actual {@code Iterator} is {@code null} or has another element.
    * @return this assertion object.
+   * @throws AssertionError if the actual {@code Iterator} is {@code null} or has another element.
    * @since 3.12.0
    */
   public SELF isExhausted() {

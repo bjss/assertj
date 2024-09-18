@@ -23,15 +23,15 @@ import org.assertj.core.presentation.StandardRepresentation;
 /**
  * Base contract of all assertion objects: the minimum functionality that any assertion object should provide.
  *
- * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
- *          target="_blank">Emulating
- *          'self types' using Java Generics to simplify fluent API implementation</a>&quot; for more details.
- * @param <ACTUAL> the type of the "actual" value.
- *
  * @author Yvonne Wang
  * @author Alex Ruiz
  * @author Nicolas François
  * @author Mikhail Mazursky
+ *
+ * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
+ *          target="_blank">Emulating
+ *          'self types' using Java Generics to simplify fluent API implementation</a>&quot; for more details.
+ * @param <ACTUAL> the type of the "actual" value.
  */
 public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descriptable<SELF>, ExtensionPoints<SELF, ACTUAL> {
 
@@ -248,8 +248,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * assertThat(frodo).usingComparator(raceComparator).isEqualTo(sam);</code></pre>
    *
    * @param customComparator the comparator to use for the incoming assertion checks.
-   * @throws NullPointerException if the given comparator is {@code null}.
    * @return {@code this} assertion object.
+   * @throws NullPointerException if the given comparator is {@code null}.
    */
   SELF usingComparator(Comparator<? super ACTUAL> customComparator);
 
@@ -266,8 +266,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    *
    * @param customComparator the comparator to use for the incoming assertion checks.
    * @param customComparatorDescription comparator description to be used in assertion error messages
-   * @throws NullPointerException if the given comparator is {@code null}.
    * @return {@code this} assertion object.
+   * @throws NullPointerException if the given comparator is {@code null}.
    */
   SELF usingComparator(Comparator<? super ACTUAL> customComparator, String customComparatorDescription);
 
@@ -673,10 +673,11 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
   AbstractCharSequenceAssert<?, String> asString();
 
   /**
-   * @deprecated
-   *             Throws <code>{@link UnsupportedOperationException}</code> if called. It is easy to accidentally call
-   *             <code>equals(Object)</code> instead of <code>{@link #isEqualTo(Object)}</code>.
+   * Throws <code>{@link UnsupportedOperationException}</code> if called. It is easy to accidentally call
+   * <code>equals(Object)</code> instead of <code>{@link #isEqualTo(Object)}</code>.
+   *
    * @throws UnsupportedOperationException if this method is called.
+   * @deprecated
    */
   @Override
   @Deprecated

@@ -20,10 +20,10 @@ import org.assertj.core.util.VisibleForTesting;
 /**
  * Assertions for {@link Spliterator} type.
  *
+ * @author William Bakker
+ *
  * @param <SELF> the "self" type of this assertion class.
  * @param <ELEMENT> the type of elements.
- *
- * @author William Bakker
  */
 public class AbstractSpliteratorAssert<SELF extends AbstractSpliteratorAssert<SELF, ELEMENT>, ELEMENT> extends
     AbstractAssert<SELF, Spliterator<ELEMENT>> {
@@ -48,10 +48,10 @@ public class AbstractSpliteratorAssert<SELF extends AbstractSpliteratorAssert<SE
    * assertThat(spliterator).hasCharacteristics(Spliterator.DISTINCT); </code></pre>
    *
    * @param characteristics the expected characteristics.
+   * @return {@code this} assertion object.
+   *
    * @throws AssertionError if the actual {@code Spliterator} is {@code null}.
    * @throws AssertionError if the actual {@code Spliterator} does not have the expected characteristics.
-   *
-   * @return {@code this} assertion object.
    */
   public SELF hasCharacteristics(int... characteristics) {
     isNotNull();
@@ -75,11 +75,11 @@ public class AbstractSpliteratorAssert<SELF extends AbstractSpliteratorAssert<SE
    * assertThat(spliterator).hasOnlyCharacteristics(Spliterator.SIZED, Spliterator.SUBSIZED); </code></pre>
    *
    * @param characteristics the expected characteristics.
+   * @return {@code this} assertion object.
+   *
    * @throws AssertionError if the actual {@code Spliterator} is {@code null}.
    * @throws AssertionError if the actual {@code Spliterator} does not have the expected characteristics
    *                        or the actual {@code Spliterator} has additional characteristics.
-   *
-   * @return {@code this} assertion object.
    */
   public SELF hasOnlyCharacteristics(int... characteristics) {
     isNotNull();

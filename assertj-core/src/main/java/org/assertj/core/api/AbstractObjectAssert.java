@@ -40,17 +40,17 @@ import org.assertj.core.util.introspection.IntrospectionError;
 /**
  * Base class for all implementations of assertions for {@link Object}s.
  *
- * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
- *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
- *          for more details.
- * @param <ACTUAL> the type of the "actual" value.
- *
  * @author Yvonne Wang
  * @author Alex Ruiz
  * @author Nicolas François
  * @author Mikhail Mazursky
  * @author Joel Costigliola
  * @author Libor Ondrusek
+ *
+ * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
+ *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
+ *          for more details.
+ * @param <ACTUAL> the type of the "actual" value.
  */
 // suppression of deprecation works in Eclipse to hide warning for the deprecated classes in the imports
 @SuppressWarnings("deprecation")
@@ -77,8 +77,6 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
   }
 
   /**
-   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and chain with
-   * {@link RecursiveComparisonAssert#ignoringExpectedNullFields() ignoringExpectedNullFields()}.
    * <p>
    * This method is deprecated because it only compares the first level of fields while the recursive comparison traverses all
    * fields recursively (only stopping at java types).
@@ -142,6 +140,9 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @throws NullPointerException if the actual or other object is {@code null}.
    * @throws AssertionError if the actual and the given object are not lenient equals.
    * @throws IntrospectionError if one of actual's field to compare can't be found in the other object.
+   *
+   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and chain with
+   * {@link RecursiveComparisonAssert#ignoringExpectedNullFields() ignoringExpectedNullFields()}.
    */
   @Deprecated
   public SELF isEqualToIgnoringNullFields(Object other) {
@@ -150,7 +151,6 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
   }
 
   /**
-   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and specify the fields to ignore.
    * <p>
    * <b>Warning:</b> the recursive comparison does not provide a strictly equivalent feature, instead it provides several ways to ignore
    * fields in the comparison {@link RecursiveComparisonAssert#ignoringFields(String...) by specifying fields to ignore}, or
@@ -218,6 +218,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @throws AssertionError if the actual and the given objects are not equals property/field by property/field on given fields.
    * @throws IntrospectionError if one of actual's property/field to compare can't be found in the other object.
    * @throws IntrospectionError if a property/field does not exist in actual.
+   *
+   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and specify the fields to ignore.
    */
   @Deprecated
   public SELF isEqualToComparingOnlyGivenFields(Object other, String... propertiesOrFieldsUsedInComparison) {
@@ -227,7 +229,6 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
   }
 
   /**
-   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and chain with
    * {@link RecursiveComparisonAssert#ignoringFields(String...) ignoringFields(String...)}.
    * <p>
    * This method is deprecated because it only compares the first level of fields while the recursive comparison traverses all
@@ -290,6 +291,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @throws NullPointerException if the actual or given object is {@code null}.
    * @throws AssertionError if the actual and the given objects are not equals property/field by property/field after ignoring given fields.
    * @throws IntrospectionError if one of actual's property/field to compare can't be found in the other object.
+   *
+   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()} and chain with
    */
   @Deprecated
   public SELF isEqualToIgnoringGivenFields(Object other, String... propertiesOrFieldsToIgnore) {
@@ -421,7 +424,6 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
   }
 
   /**
-   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()}.
    * <p>
    * This method is deprecated because it only compares the first level of fields while the recursive comparison traverses all
    * fields recursively (only stopping at java types).
@@ -478,6 +480,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @throws AssertionError if the actual object is {@code null}.
    * @throws AssertionError if the actual and the given objects are not equals property/field by property/field.
    * @throws IntrospectionError if one of actual's property/field to compare can't be found in the other object.
+   *
+   * @deprecated Use the recursive comparison by calling {@link #usingRecursiveComparison()}.
    */
   @Deprecated
   public SELF isEqualToComparingFieldByField(Object other) {
@@ -835,8 +839,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @return a new {@link ObjectAssert} instance whose object under test is the extracted property/field value
    * @throws IntrospectionError if one of the given name does not match a field or property
    *
-   * @since 3.13.0
    * @see #extracting(String, InstanceOfAssertFactory)
+   * @since 3.13.0
    */
   @CheckReturnValue
   public AbstractObjectAssert<?, ?> extracting(String propertyOrField) {
@@ -954,8 +958,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @param extractor the extractor function used to extract the value from the object under test.
    * @return a new {@link ObjectAssert} instance whose object under test is the extracted value
    *
-   * @since 3.11.0
    * @see #extracting(Function, InstanceOfAssertFactory)
+   * @since 3.11.0
    */
   @CheckReturnValue
   public <T> AbstractObjectAssert<?, T> extracting(Function<? super ACTUAL, T> extractor) {
@@ -1001,7 +1005,6 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
   }
 
   /**
-   * @deprecated Prefer calling {@link #usingRecursiveComparison()} for comparing objects field by field as it offers more flexibility, better reporting and an easier to use API.
    *
    * Asserts that the object under test (actual) is equal to the given object based on a recursive property/field by property/field comparison (including
    * inherited ones). This can be useful if actual's {@code equals} implementation does not suit you.
@@ -1070,6 +1073,8 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @throws AssertionError if the actual object is {@code null}.
    * @throws AssertionError if the actual and the given objects are not deeply equal property/field by property/field.
    * @throws IntrospectionError if one property/field to compare can not be found.
+   *
+   * @deprecated Prefer calling {@link #usingRecursiveComparison()} for comparing objects field by field as it offers more flexibility, better reporting and an easier to use API.
    */
   @Deprecated
   public SELF isEqualToComparingFieldByFieldRecursively(Object other) {
@@ -1129,9 +1134,9 @@ public abstract class AbstractObjectAssert<SELF extends AbstractObjectAssert<SEL
    * @return {@code this} assertion object.
    * @throws AssertionError if {@code actual} is {@code null}
    * @throws NullPointerException if given {@code from} function is null
+   * @see #usingComparatorForType(Comparator, Class)
    *
    * @since 3.22.0
-   * @see #usingComparatorForType(Comparator, Class)
    */
   public <T> SELF doesNotReturn(T expected, Function<ACTUAL, T> from) {
     requireNonNull(from, "The given getter method/Function must not be null");

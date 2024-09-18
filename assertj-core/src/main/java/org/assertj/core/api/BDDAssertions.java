@@ -2665,9 +2665,9 @@ public class BDDAssertions extends Assertions {
    *
    * @param propertyName the name of the property to be read from the elements of a {@code Iterable}. It may be a nested
    *          property (e.g. "address.street.number").
+   * @return the created {@code Properties}.
    * @throws NullPointerException if the given property name is {@code null}.
    * @throws IllegalArgumentException if the given property name is empty.
-   * @return the created {@code Properties}.
    *
    * @since 3.20.0
    */
@@ -2866,7 +2866,6 @@ public class BDDAssertions extends Assertions {
    * Typical usage :
    * <pre><code class='java'> assertThat(BigInteger.TEN).isCloseTo(new BigInteger("11"), within(new BigInteger("2")));</code></pre>
    *
-   * @since 2.7.0 / 3.7.0
    * @param value the allowed offset
    * @return the created {@code Offset}.
    * @throws NullPointerException if the given value is {@code null}.
@@ -3230,7 +3229,6 @@ public class BDDAssertions extends Assertions {
    * @param <ASSERT>      the type of the resulting {@code Assert}
    * @return same instance of {@code assertFactory}
    *
-   * @since 3.20.0
    * @see AbstractObjectAssert#extracting(String, InstanceOfAssertFactory)
    * @see AbstractObjectAssert#extracting(Function, InstanceOfAssertFactory)
    * @see AbstractMapAssert#extractingByKey(Object, InstanceOfAssertFactory)
@@ -3238,8 +3236,8 @@ public class BDDAssertions extends Assertions {
    * @see AbstractIterableAssert#first(InstanceOfAssertFactory)
    * @see AbstractIterableAssert#last(InstanceOfAssertFactory)
    * @see AbstractIterableAssert#element(int, InstanceOfAssertFactory)
-   *
    * @since 3.20.0
+   *
    */
   public static <T, ASSERT extends AbstractAssert<?, ?>> InstanceOfAssertFactory<T, ASSERT> as(InstanceOfAssertFactory<T, ASSERT> assertFactory) {
     return Assertions.as(assertFactory);
